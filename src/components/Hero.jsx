@@ -1,5 +1,6 @@
 import { useFadeIn } from '../hooks/useFadeIn'
 import ProfileImage from './ProfileImage'
+import { GitHubIcon } from './SocialIcons'
 
 export default function Hero() {
   const { ref, isVisible } = useFadeIn()
@@ -30,8 +31,9 @@ export default function Hero() {
               href="https://github.com/mahmoud-aljabour"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline"
+              className="btn-outline gap-2"
             >
+              <GitHubIcon size={18} />
               View GitHub
             </a>
           </div>

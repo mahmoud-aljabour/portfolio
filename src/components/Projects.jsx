@@ -1,4 +1,5 @@
-import { ArrowUpRight, Code2 } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { GitHubIcon } from './SocialIcons'
 import { useFadeIn } from '../hooks/useFadeIn'
 
 const projects = [
@@ -55,8 +56,7 @@ export default function Projects() {
       >
         <div className="mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <span className="section-label mb-3 inline-block">Recent Projects</span>
-            <h2 className="section-title">My Portfolio</h2>
+            <h2 className="section-title">Projects</h2>
           </div>
           <a
             href="https://github.com/mahmoud-aljabour"
@@ -64,7 +64,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-card bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#5a52e0] hover:shadow-lg"
           >
-            <Code2 size={16} />
+            <GitHubIcon size={16} />
             View All
           </a>
         </div>
@@ -102,6 +102,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-[#5a52e0]"
                 >
+                  <GitHubIcon size={14} />
                   View on GitHub
                   <ArrowUpRight size={14} />
                 </a>

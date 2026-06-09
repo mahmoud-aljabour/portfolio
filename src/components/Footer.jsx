@@ -1,4 +1,4 @@
-import { Code2, UserRound, Share2 } from 'lucide-react'
+import { GitHubIcon, LinkedInIcon, XIcon } from './SocialIcons'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -8,9 +8,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { icon: Code2, href: 'https://github.com/mahmoud-aljabour', label: 'GitHub' },
-  { icon: UserRound, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Share2, href: 'https://twitter.com', label: 'Twitter' },
+  { Icon: GitHubIcon, href: 'https://github.com/mahmoud-aljabour', label: 'GitHub' },
+  { Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/mahmoud-al-jabour/', label: 'LinkedIn' },
+  { Icon: XIcon, href: 'https://twitter.com', label: 'X (Twitter)' },
 ]
 
 export default function Footer() {
@@ -39,7 +39,7 @@ export default function Footer() {
           </ul>
 
           <div className="flex items-center gap-4">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
+            {socialLinks.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
