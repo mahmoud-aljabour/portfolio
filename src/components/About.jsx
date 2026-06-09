@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react'
 import { useFadeIn } from '../hooks/useFadeIn'
-import profilePhoto from '../assets/profile.jpg'
+import ProfileImage from './ProfileImage'
 
 const skills = [
   'Laravel & PHP Development',
@@ -20,26 +20,11 @@ export default function About() {
         ref={ref}
         className={`mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div
-            className="absolute -bottom-6 -left-6 -right-6 top-8 rounded-[2rem] bg-primary/30"
-            style={{
-              clipPath: 'polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%)',
-            }}
-          />
-          <div className="relative z-10 overflow-hidden rounded-card">
-            <div className="aspect-[4/5] overflow-hidden">
-              <img
-                src={profilePhoto}
-                alt="Mahmoud M. Al-Jabour"
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </div>
+        <div className="flex justify-center lg:justify-start">
+          <ProfileImage />
         </div>
 
         <div>
-          <span className="section-label mb-3 inline-block">About</span>
           <h2 className="section-title mb-6">About Me</h2>
           <p className="mb-8 text-base leading-relaxed text-muted">
             I&apos;m a Backend Developer with a B.Sc. in Web Technology and Information Security

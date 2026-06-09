@@ -5,7 +5,6 @@ const navLinks = [
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'About Me', href: '#about' },
   { label: 'Contact', href: '#contact' },
-  { label: 'Testimonials', href: '#testimonials' },
 ]
 
 const socialLinks = [
@@ -57,9 +56,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-border pt-6 text-center">
           <p className="text-sm text-muted">
-            Made with ❤️ by{' '}
-            <span className="font-semibold text-dark">Mahmoud M. Al-Jabour</span>
-            {' '}· © {new Date().getFullYear()} All rights reserved.
+            &copy; {new Date().getFullYear()} Mahmoud M. Al-Jabour. All rights reserved.
           </p>
         </div>
       </div>

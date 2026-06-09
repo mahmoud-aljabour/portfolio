@@ -50,8 +50,7 @@ export default function Expertise() {
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
         <div className="mb-12 text-center">
-          <span className="section-label mb-3 inline-block">My Skills</span>
-          <h2 className="section-title">My Expertise</h2>
+          <h2 className="section-title">My Experience</h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
