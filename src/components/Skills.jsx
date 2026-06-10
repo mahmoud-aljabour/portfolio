@@ -4,7 +4,7 @@ const skills = [
   'PHP',
   'Laravel',
   'MySQL',
-  'Redis',
+  // 'Redis',
   'JavaScript',
   'Vue.js',
   'Tailwind CSS',
@@ -20,7 +20,7 @@ const skills = [
   'Figma',
   'VS Code',
   'MySQL Workbench',
-  'Redis CLI',
+  // 'Redis CLI',
 ]
 
 export default function Skills() {

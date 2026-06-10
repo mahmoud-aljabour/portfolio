@@ -8,7 +8,7 @@ const skills = [
   'MySQL & Database Optimization',
   'Multi-Tenant Architecture',
   'Vue.js Frontend Integration',
-  'Redis Caching & Queues',
+  // 'Redis Caching & Queues',
 ]
 
 export default function About() {

@@ -8,7 +8,7 @@ const projects = [
     category: 'SaaS / Backend',
     description:
       'A multi-tenant inventory management system with tenant isolation, role-based access, and real-time stock tracking.',
-    tags: ['Laravel', 'PHP', 'MySQL', 'Redis'],
+    tags: ['Laravel', 'PHP', 'MySQL'],
     url: 'https://github.com/mahmoud-aljabour/Multi-Tenant-Task',
     color: 'from-purple-100 to-purple-200',
     emoji: '📦',
