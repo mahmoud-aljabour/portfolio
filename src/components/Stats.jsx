@@ -4,7 +4,7 @@ const stats = [
   { value: '5K+', label: 'Daily API Requests' },
   { value: '98%', label: 'Uptime' },
   { value: '86%', label: 'Faster Response' },
-  { value: '4+', label: 'Projects' },
+  { value: '5+', label: 'Projects' },
 ]
 
 export default function Stats() {

@@ -1,8 +1,40 @@
-import { ArrowUpRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
 import { GitHubIcon } from './SocialIcons'
 import { useFadeIn } from '../hooks/useFadeIn'
+import ProjectLightbox from './ProjectLightbox'
+import smartSmileDashboard from '../assets/projects/smart-smile-dashboard.png'
+import smartSmileLogin from '../assets/projects/smart-smile-login.png'
+import smartSmilePatients from '../assets/projects/smart-smile-patients.png'
+import smartSmileServices from '../assets/projects/smart-smile-services.png'
+import smartSmileInvoices from '../assets/projects/smart-smile-invoices.png'
+import smartSmileUsers from '../assets/projects/smart-smile-users.png'
+import onlineStoreHomepage from '../assets/projects/online-store-homepage.png'
+import onlineStoreDeals from '../assets/projects/online-store-deals.png'
+import onlineStoreProduct from '../assets/projects/online-store-product.png'
+import onlineStoreCart from '../assets/projects/online-store-cart.png'
+import onlineStoreWishlist from '../assets/projects/online-store-wishlist.png'
+import onlineStoreCustomerLogin from '../assets/projects/online-store-customer-login.png'
+import onlineStoreAdminDashboard from '../assets/projects/online-store-admin-dashboard.png'
+import onlineStoreAdminLogin from '../assets/projects/online-store-admin-login.png'
 
 const projects = [
+  {
+    title: 'Smart Smile Clinic',
+    category: 'Healthcare / Clinic Management',
+    description:
+      'A web-based dental clinic management system for patient records, appointments, invoicing, prescriptions, and admin reporting.',
+    tags: ['PHP', 'MySQL', 'Bootstrap 5', 'jQuery'],
+    url: 'https://github.com/mahmoud-aljabour/Smart-Smile-Clinic',
+    images: [
+      { src: smartSmileDashboard, alt: 'Smart Smile Clinic dashboard', label: 'Dashboard' },
+      { src: smartSmilePatients, alt: 'Smart Smile Clinic patients list', label: 'Patients' },
+      { src: smartSmileServices, alt: 'Smart Smile Clinic services management', label: 'Services' },
+      { src: smartSmileInvoices, alt: 'Smart Smile Clinic invoices', label: 'Invoices' },
+      { src: smartSmileUsers, alt: 'Smart Smile Clinic user management', label: 'Users' },
+      { src: smartSmileLogin, alt: 'Smart Smile Clinic login page', label: 'Login' },
+    ],
+  },
   {
     title: 'Multi-Tenant Inventory System',
     category: 'SaaS / Backend',
@@ -27,26 +59,138 @@ const projects = [
     title: 'Online Store Platform',
     category: 'E-Commerce',
     description:
-      'Complete e-commerce platform with product catalog, shopping cart, order management, and admin dashboard.',
-    tags: ['Laravel', 'Vue.js', 'MySQL'],
+      'A full-stack Laravel e-commerce MVP with session cart, guest and authenticated checkout, stock-safe order placement, role-based admin panel, and bilingual storefront (EN/AR).',
+    tags: ['Laravel', 'Breeze', 'Spatie Permission', 'MySQL', 'Pest'],
     url: 'https://github.com/mahmoud-aljabour/Online_Store',
-    color: 'from-green-100 to-green-200',
-    emoji: '🛒',
+    images: [
+      { src: onlineStoreHomepage, alt: 'Online Store homepage', label: 'Homepage' },
+      { src: onlineStoreDeals, alt: 'Online Store deals and featured products', label: 'Deals' },
+      { src: onlineStoreProduct, alt: 'Online Store product detail page', label: 'Product' },
+      { src: onlineStoreCart, alt: 'Online Store shopping cart in Arabic', label: 'Cart (AR)' },
+      { src: onlineStoreWishlist, alt: 'Online Store customer wishlist', label: 'Wishlist' },
+      { src: onlineStoreCustomerLogin, alt: 'Online Store customer login', label: 'Login' },
+      { src: onlineStoreAdminDashboard, alt: 'Online Store admin dashboard', label: 'Admin' },
+      { src: onlineStoreAdminLogin, alt: 'Online Store admin login page', label: 'Admin Login' },
+    ],
   },
-  {
-    title: 'Task Management API',
-    category: 'REST API',
-    description:
-      'RESTful API for task management with authentication, CRUD operations, filtering, and API documentation.',
-    tags: ['Laravel', 'PHP', 'Sanctum'],
-    url: 'https://github.com/mahmoud-aljabour/Task_Manage_Api',
-    color: 'from-orange-100 to-orange-200',
-    emoji: '✅',
-  },
+  // {
+  //   title: 'Task Management API',
+  //   category: 'REST API',
+  //   description:
+  //     'RESTful API for task management with authentication, CRUD operations, filtering, and API documentation.',
+  //   tags: ['Laravel', 'PHP', 'Sanctum'],
+  //   url: 'https://github.com/mahmoud-aljabour/Task_Manage_Api',
+  //   color: 'from-orange-100 to-orange-200',
+  //   emoji: '✅',
+  // },
 ]
+
+function ProjectGallery({ project, onImageClick }) {
+  const images = project.images ?? []
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const current = images[index]
+
+  useEffect(() => {
+    setIndex(0)
+  }, [project.title])
+
+  useEffect(() => {
+    if (images.length <= 1 || paused) return undefined
+
+    const timer = window.setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length)
+    }, 4000)
+
+    return () => window.clearInterval(timer)
+  }, [images.length, paused])
+
+  const goTo = (nextIndex, event) => {
+    event?.stopPropagation()
+    setIndex((nextIndex + images.length) % images.length)
+  }
+
+  if (current) {
+    return (
+      <div
+        className="group relative h-44 overflow-hidden bg-slate-50"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <button
+          type="button"
+          onClick={() => onImageClick(project, index)}
+          className="relative h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+          aria-label={`View ${current.label || current.alt}`}
+        >
+          <img
+            key={current.alt}
+            src={current.src}
+            alt={current.alt}
+            className="h-full w-full object-cover object-top transition-opacity duration-500"
+            loading="lazy"
+          />
+          <span className="absolute inset-0 flex items-center justify-center bg-dark/0 transition-colors group-hover:bg-dark/25">
+            <span className="flex scale-90 items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-dark opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100">
+              <ZoomIn size={14} />
+              {current.label || 'View'}
+            </span>
+          </span>
+        </button>
+
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={(event) => goTo(index - 1, event)}
+              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100"
+              aria-label="Previous screenshot"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              type="button"
+              onClick={(event) => goTo(index + 1, event)}
+              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100"
+              aria-label="Next screenshot"
+            >
+              <ChevronRight size={16} />
+            </button>
+            <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 opacity-0 transition-opacity group-hover:opacity-100">
+              {images.map((image, dotIndex) => (
+                <button
+                  key={image.alt}
+                  type="button"
+                  onClick={(event) => goTo(dotIndex, event)}
+                  className={`h-1.5 rounded-full transition-all ${dotIndex === index ? 'w-4 bg-white' : 'w-1.5 bg-white/60 hover:bg-white'}`}
+                  aria-label={`Show ${image.label || image.alt}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className={`flex h-44 items-center justify-center bg-gradient-to-br ${project.color} text-5xl`}
+    >
+      {project.emoji}
+    </div>
+  )
+}
 
 export default function Projects() {
   const { ref, isVisible } = useFadeIn()
+  const [lightbox, setLightbox] = useState(null)
+
+  const openLightbox = (project, index) => {
+    setLightbox({ title: project.title, images: project.images, index })
+  }
+
+  const closeLightbox = () => setLightbox(null)
 
   return (
     <section id="portfolio" className="bg-white py-20">
@@ -75,11 +219,7 @@ export default function Projects() {
               key={project.title}
               className="card-hover overflow-hidden rounded-card border border-border bg-white shadow-card"
             >
-              <div
-                className={`flex h-44 items-center justify-center bg-gradient-to-br ${project.color} text-5xl`}
-              >
-                {project.emoji}
-              </div>
+              <ProjectGallery project={project} onImageClick={openLightbox} />
               <div className="p-5">
                 <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-wider text-primary">
                   {project.category}
@@ -111,6 +251,16 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {lightbox && (
+        <ProjectLightbox
+          images={lightbox.images}
+          index={lightbox.index}
+          title={lightbox.title}
+          onClose={closeLightbox}
+          onNavigate={(index) => setLightbox((prev) => ({ ...prev, index }))}
+        />
+      )}
     </section>
   )
 }
