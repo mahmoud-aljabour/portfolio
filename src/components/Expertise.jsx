@@ -7,7 +7,7 @@ const expertise = [
     title: 'Backend Development',
     description:
       'Building robust server-side applications with Laravel, PHP, and clean architecture patterns for scalable solutions.',
-    iconBg: 'bg-primary/10',
+    iconBg: 'bg-primary/10 dark:bg-primary/20',
     iconColor: 'text-primary',
     borderColor: 'border-primary',
   },
@@ -16,7 +16,7 @@ const expertise = [
     title: 'API Design',
     description:
       'Designing RESTful APIs with proper authentication, validation, and documentation for seamless integrations.',
-    iconBg: 'bg-green-100',
+    iconBg: 'bg-green-100 dark:bg-green-900/30',
     iconColor: 'text-green-600',
     borderColor: 'border-green-500',
   },
@@ -25,7 +25,7 @@ const expertise = [
     title: 'SaaS Architecture',
     description:
       'Architecting multi-tenant SaaS platforms with subscription billing, role-based access, and tenant isolation.',
-    iconBg: 'bg-yellow-100',
+    iconBg: 'bg-yellow-100 dark:bg-yellow-900/30',
     iconColor: 'text-yellow-600',
     borderColor: 'border-yellow-500',
   },
@@ -34,7 +34,7 @@ const expertise = [
     title: 'E-Commerce',
     description:
       'Developing full-featured online stores with inventory management, payment processing, and order workflows.',
-    iconBg: 'bg-red-100',
+    iconBg: 'bg-red-100 dark:bg-red-900/30',
     iconColor: 'text-red-500',
     borderColor: 'border-red-500',
   },
@@ -44,7 +44,7 @@ export default function Expertise() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section className="bg-background py-20">
+    <section className="bg-background py-20 transition-colors duration-300 dark:bg-slate-950">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
@@ -57,15 +57,15 @@ export default function Expertise() {
           {expertise.map((item, index) => (
             <div
               key={item.title}
-              className={`card-hover group rounded-card border border-border border-b-4 bg-white p-6 shadow-card ${item.borderColor} ${index === 0 ? 'border-b-primary' : 'border-b-transparent hover:border-b-primary'}`}
+              className={`card-hover group rounded-card border border-border border-b-4 bg-white p-6 shadow-card dark:border-slate-700 dark:bg-slate-900 dark:shadow-card-dark ${item.borderColor} ${index === 0 ? 'border-b-primary' : 'border-b-transparent hover:border-b-primary'}`}
             >
               <div
                 className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${item.iconBg}`}
               >
                 <item.icon size={24} className={item.iconColor} />
               </div>
-              <h3 className="mb-3 text-lg font-bold text-dark">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-muted">{item.description}</p>
+              <h3 className="mb-3 text-lg font-bold text-dark dark:text-slate-100">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-muted dark:text-slate-400">{item.description}</p>
             </div>
           ))}
         </div>

@@ -7,7 +7,7 @@ export default function ProfileImage({ className = '' }) {
         className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full rounded-card bg-primary/10"
         aria-hidden="true"
       />
-      <div className="relative overflow-hidden rounded-card border border-border/60 shadow-card">
+      <div className="relative overflow-hidden rounded-card border border-border/60 shadow-card dark:border-slate-700 dark:shadow-card-dark">
         <div className="aspect-[3/4] overflow-hidden bg-[#152238]">
           <img
             src={profilePhoto}

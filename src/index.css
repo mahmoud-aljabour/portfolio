@@ -7,8 +7,12 @@
     scroll-behavior: smooth;
   }
 
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-background font-sans text-dark antialiased;
+    @apply bg-background font-sans text-dark antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
   }
 }
 
@@ -22,7 +26,7 @@
   }
 
   .section-title {
-    @apply text-3xl font-bold text-dark md:text-4xl;
+    @apply text-3xl font-bold text-dark md:text-4xl dark:text-slate-100;
   }
 
   .card-hover {
@@ -42,10 +46,10 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-card border-2 border-primary px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary-light;
+    @apply inline-flex items-center justify-center rounded-card border-2 border-primary px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary-light dark:hover:bg-primary/15;
   }
 
   .input-field {
-    @apply w-full rounded-card border border-border bg-white px-4 py-3 text-sm text-dark outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-2 focus:ring-primary/20;
+    @apply w-full rounded-card border border-border bg-white px-4 py-3 text-sm text-dark outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500;
   }
 }

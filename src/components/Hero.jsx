@@ -6,19 +6,19 @@ export default function Hero() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section id="home" className="bg-background py-16 md:py-24">
+    <section id="home" className="bg-background py-16 transition-colors duration-300 dark:bg-slate-950 md:py-24">
       <div
         ref={ref}
         className={`mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
         <div className="order-2 lg:order-1">
           <span className="section-label mb-4 inline-block">Backend Developer</span>
-          <h1 className="mb-6 text-4xl font-extrabold leading-tight text-dark md:text-5xl lg:text-[3.25rem]">
+          <h1 className="mb-6 text-4xl font-extrabold leading-tight text-dark dark:text-slate-100 md:text-5xl lg:text-[3.25rem]">
             I build scalable{' '}
             <span className="highlight">backend systems</span>
             {' '}and robust APIs
           </h1>
-          <p className="mb-8 max-w-lg text-base leading-relaxed text-muted">
+          <p className="mb-8 max-w-lg text-base leading-relaxed text-muted dark:text-slate-400">
             Backend Developer specializing in PHP and Laravel, designing multi-tenant SaaS
             architectures, secure payment flows, and high-performance REST APIs. Handling
             5,000+ daily requests with 98% uptime from Khan Yunis, Palestine 🇵🇸

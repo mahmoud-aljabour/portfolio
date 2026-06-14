@@ -137,7 +137,7 @@ function ProjectGallery({ project, onImageClick }) {
   if (current) {
     return (
       <div
-        className="group relative h-44 overflow-hidden bg-slate-50"
+        className="group relative h-44 overflow-hidden bg-slate-50 dark:bg-slate-800"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -155,7 +155,7 @@ function ProjectGallery({ project, onImageClick }) {
             loading="lazy"
           />
           <span className="absolute inset-0 flex items-center justify-center bg-dark/0 transition-colors group-hover:bg-dark/25">
-            <span className="flex scale-90 items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-dark opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100">
+            <span className="flex scale-90 items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-dark opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100 dark:bg-slate-900/90 dark:text-slate-100">
               <ZoomIn size={14} />
               {current.label || 'View'}
             </span>
@@ -167,7 +167,7 @@ function ProjectGallery({ project, onImageClick }) {
             <button
               type="button"
               onClick={(event) => goTo(index - 1, event)}
-              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100"
+              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100 dark:bg-slate-800/90 dark:text-slate-100 dark:hover:bg-slate-700"
               aria-label="Previous screenshot"
             >
               <ChevronLeft size={16} />
@@ -175,7 +175,7 @@ function ProjectGallery({ project, onImageClick }) {
             <button
               type="button"
               onClick={(event) => goTo(index + 1, event)}
-              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100"
+              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-1 text-dark opacity-0 shadow-sm transition-all hover:bg-white group-hover:opacity-100 dark:bg-slate-800/90 dark:text-slate-100 dark:hover:bg-slate-700"
               aria-label="Next screenshot"
             >
               <ChevronRight size={16} />
@@ -217,7 +217,7 @@ export default function Projects() {
   const closeLightbox = () => setLightbox(null)
 
   return (
-    <section id="portfolio" className="bg-white py-20">
+    <section id="portfolio" className="bg-white py-20 transition-colors duration-300 dark:bg-slate-900">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
@@ -241,20 +241,20 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="card-hover overflow-hidden rounded-card border border-border bg-white shadow-card"
+              className="card-hover overflow-hidden rounded-card border border-border bg-white shadow-card dark:border-slate-700 dark:bg-slate-800 dark:shadow-card-dark"
             >
               <ProjectGallery project={project} onImageClick={openLightbox} />
               <div className="p-5">
                 <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-wider text-primary">
                   {project.category}
                 </span>
-                <h3 className="mb-2 text-lg font-bold text-dark">{project.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-muted">{project.description}</p>
+                <h3 className="mb-2 text-lg font-bold text-dark dark:text-slate-100">{project.title}</h3>
+                <p className="mb-4 text-sm leading-relaxed text-muted dark:text-slate-400">{project.description}</p>
                 <div className="mb-4 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md bg-primary-light px-2 py-0.5 text-xs font-medium text-primary"
+                      className="rounded-md bg-primary-light px-2 py-0.5 text-xs font-medium text-primary dark:bg-primary/20"
                     >
                       {tag}
                     </span>

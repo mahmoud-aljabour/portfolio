@@ -24,7 +24,7 @@ export default function ProjectLightbox({ images, index, title, onClose, onNavig
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm dark:bg-black/85"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
