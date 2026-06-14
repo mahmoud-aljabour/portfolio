@@ -9,8 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>Mahmoud Al-Jabour | Backend Developer</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-CLFqW3Z1.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-MOKiyiL8.css">
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme')
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-BLJwjm4B.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BNPEj4iv.css">
   </head>
   <body>
     <div id="root"></div>
