@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahmoud-aljabour.github.io/portfolio/sitemap.xml
