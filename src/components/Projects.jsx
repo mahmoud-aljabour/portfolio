@@ -17,6 +17,14 @@ import onlineStoreWishlist from '../assets/projects/online-store-wishlist.png'
 import onlineStoreCustomerLogin from '../assets/projects/online-store-customer-login.png'
 import onlineStoreAdminDashboard from '../assets/projects/online-store-admin-dashboard.png'
 import onlineStoreAdminLogin from '../assets/projects/online-store-admin-login.png'
+import libraryDashboard from '../assets/projects/library-dashboard.png'
+import libraryBooks from '../assets/projects/library-books.png'
+import libraryMembers from '../assets/projects/library-members.png'
+import libraryBorrowings from '../assets/projects/library-borrowings.png'
+import libraryAuthors from '../assets/projects/library-authors.png'
+import libraryLogin from '../assets/projects/library-login.png'
+import multiTenantArchitecture from '../assets/projects/multi-tenant-architecture.png'
+import multiTenantArchitectureDetail from '../assets/projects/multi-tenant-architecture-detail.png'
 
 const projects = [
   {
@@ -42,8 +50,18 @@ const projects = [
       'A multi-tenant inventory management system with tenant isolation, role-based access, and real-time stock tracking.',
     tags: ['Laravel', 'PHP', 'MySQL'],
     url: 'https://github.com/mahmoud-aljabour/Multi-Tenant-Task',
-    color: 'from-purple-100 to-purple-200',
-    emoji: '📦',
+    images: [
+      {
+        src: multiTenantArchitecture,
+        alt: 'Multi-Tenant Inventory System architecture diagram',
+        label: 'Architecture',
+      },
+      {
+        src: multiTenantArchitectureDetail,
+        alt: 'Multi-Tenant Inventory System backend architecture flow',
+        label: 'System Flow',
+      },
+    ],
   },
   {
     title: 'Library Management System',
@@ -52,8 +70,14 @@ const projects = [
       'Full-featured library system with book cataloging, member management, borrowing workflows, and reporting.',
     tags: ['Laravel', 'Blade', 'MySQL'],
     url: 'https://github.com/mahmoud-aljabour/Library-Management-System',
-    color: 'from-blue-100 to-blue-200',
-    emoji: '📚',
+    images: [
+      { src: libraryDashboard, alt: 'Library Management System dashboard', label: 'Dashboard' },
+      { src: libraryBooks, alt: 'Library Management System books list', label: 'Books' },
+      { src: libraryMembers, alt: 'Library Management System members list', label: 'Members' },
+      { src: libraryBorrowings, alt: 'Library Management System borrowings', label: 'Borrowings' },
+      { src: libraryAuthors, alt: 'Library Management System authors management', label: 'Authors' },
+      { src: libraryLogin, alt: 'Library Management System login page', label: 'Login' },
+    ],
   },
   {
     title: 'Online Store Platform',
