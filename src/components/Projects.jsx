@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, ChevronDown, ZoomIn } from 'lucide-react'
 import { GitHubIcon } from './SocialIcons'
 import { useFadeIn } from '../hooks/useFadeIn'
 import ProjectLightbox from './ProjectLightbox'
@@ -31,8 +31,14 @@ const projects = [
     title: 'Smart Smile Clinic',
     category: 'Healthcare / Clinic Management',
     description:
-      'A web-based dental clinic management system for patient records, appointments, invoicing, prescriptions, and admin reporting.',
-    tags: ['PHP', 'MySQL', 'Bootstrap 5', 'jQuery'],
+      'Full-featured dental clinic management system with patient records, appointment scheduling, invoicing, prescriptions, and admin reporting. Built for real-world clinic operations with role-based access control.',
+    technicalDetails: [
+      'Role-based authentication (Doctor, Admin, Staff) with session management',
+      'FullCalendar integration with business rule validation (no Friday bookings)',
+      'Dynamic invoice generation with print templates and auto-numbering',
+      'Real-time dashboard statistics with MySQL aggregation queries',
+    ],
+    tags: ['PHP', 'MySQL', 'Bootstrap 5', 'jQuery', 'FullCalendar'],
     url: 'https://github.com/mahmoud-aljabour/Smart-Smile-Clinic',
     images: [
       { src: smartSmileDashboard, alt: 'Smart Smile Clinic dashboard', label: 'Dashboard' },
@@ -47,8 +53,14 @@ const projects = [
     title: 'Multi-Tenant Inventory System',
     category: 'SaaS / Backend',
     description:
-      'A multi-tenant inventory management system with tenant isolation, role-based access, and real-time stock tracking.',
-    tags: ['Laravel', 'PHP', 'MySQL'],
+      'Scalable multi-tenant SaaS platform with complete tenant isolation, role-based access control, and real-time inventory tracking. Designed for horizontal scaling across multiple tenants.',
+    technicalDetails: [
+      'Database-per-tenant isolation strategy for complete data separation',
+      'Tenant-scoped middleware and query filtering for automatic data segmentation',
+      'RESTful API with JWT authentication and role-based authorization',
+      'Real-time stock alerts with automatic low-inventory notifications',
+    ],
+    tags: ['Laravel', 'PHP', 'MySQL', 'REST API', 'Multi-Tenancy'],
     url: 'https://github.com/mahmoud-aljabour/Multi-Tenant-Task',
     images: [
       {
@@ -67,8 +79,14 @@ const projects = [
     title: 'Library Management System',
     category: 'Web Application',
     description:
-      'Full-featured library system with book cataloging, member management, borrowing workflows, and reporting.',
-    tags: ['Laravel', 'Blade', 'MySQL'],
+      'Comprehensive library system with ISBN-based book cataloging, member management, borrowing workflows with automated due date tracking, and circulation analytics.',
+    technicalDetails: [
+      'ISBN validation and book metadata management with author relationships',
+      'Automated borrowing workflow with due date calculation and overdue fine tracking',
+      'Member management with borrowing history and fine payment records',
+      'Circulation reports: most borrowed titles, member activity, overdue analysis',
+    ],
+    tags: ['Laravel', 'Blade', 'MySQL', 'Eloquent ORM'],
     url: 'https://github.com/mahmoud-aljabour/Library-Management-System',
     images: [
       { src: libraryDashboard, alt: 'Library Management System dashboard', label: 'Dashboard' },
@@ -83,8 +101,15 @@ const projects = [
     title: 'Online Store Platform',
     category: 'E-Commerce',
     description:
-      'A full-stack Laravel e-commerce MVP with session cart, guest and authenticated checkout, stock-safe order placement, role-based admin panel, and bilingual storefront (EN/AR).',
-    tags: ['Laravel', 'Breeze', 'Spatie Permission', 'MySQL', 'Pest'],
+      'Full-stack Laravel e-commerce MVP with session-based cart, stock-safe order placement, role-based admin panel, and bilingual storefront supporting English and Arabic with RTL.',
+    technicalDetails: [
+      'Session-based cart with guest and authenticated checkout workflows',
+      'Stock-safe order placement with database transactions and inventory rollback',
+      'Bilingual storefront (EN/AR) with dynamic locale switching and RTL support',
+      'Role-based admin panel using Spatie Permission for product/order management',
+      'Automated test suite with Pest for business logic and edge case validation',
+    ],
+    tags: ['Laravel', 'Breeze', 'Spatie Permission', 'MySQL', 'Pest', 'i18n'],
     url: 'https://github.com/mahmoud-aljabour/Online_Store',
     images: [
       { src: onlineStoreHomepage, alt: 'Online Store homepage', label: 'Homepage' },
@@ -97,16 +122,6 @@ const projects = [
       { src: onlineStoreAdminLogin, alt: 'Online Store admin login page', label: 'Admin Login' },
     ],
   },
-  // {
-  //   title: 'Task Management API',
-  //   category: 'REST API',
-  //   description:
-  //     'RESTful API for task management with authentication, CRUD operations, filtering, and API documentation.',
-  //   tags: ['Laravel', 'PHP', 'Sanctum'],
-  //   url: 'https://github.com/mahmoud-aljabour/Task_Manage_Api',
-  //   color: 'from-orange-100 to-orange-200',
-  //   emoji: '✅',
-  // },
 ]
 
 function ProjectGallery({ project, onImageClick }) {
@@ -153,6 +168,7 @@ function ProjectGallery({ project, onImageClick }) {
             alt={current.alt}
             className="h-full w-full object-cover object-top transition-opacity duration-500"
             loading="lazy"
+            decoding="async"
           />
           <span className="absolute inset-0 flex items-center justify-center bg-dark/0 transition-colors group-hover:bg-dark/25">
             <span className="flex scale-90 items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-dark opacity-0 shadow-sm transition-all group-hover:scale-100 group-hover:opacity-100 dark:bg-slate-900/90 dark:text-slate-100">
@@ -249,7 +265,33 @@ export default function Projects() {
                   {project.category}
                 </span>
                 <h3 className="mb-2 text-lg font-bold text-dark dark:text-slate-100">{project.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-muted dark:text-slate-400">{project.description}</p>
+                <p className="mb-3 text-sm leading-relaxed text-muted dark:text-slate-400">
+                  {project.description}
+                </p>
+
+                {project.technicalDetails && (
+                  <details className="group/details mb-4">
+                    <summary className="flex cursor-pointer items-center gap-1.5 text-xs font-semibold text-primary transition-colors hover:text-[#5a52e0]">
+                      <ChevronDown
+                        size={14}
+                        className="transition-transform group-open/details:rotate-180"
+                      />
+                      Technical Details
+                    </summary>
+                    <ul className="mt-2 space-y-1.5 pl-1">
+                      {project.technicalDetails.map((detail, idx) => (
+                        <li
+                          key={idx}
+                          className="flex gap-2 text-xs leading-relaxed text-muted dark:text-slate-400"
+                        >
+                          <span className="mt-0.5 text-primary">•</span>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+
                 <div className="mb-4 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span

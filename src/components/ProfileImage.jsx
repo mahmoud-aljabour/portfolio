@@ -12,6 +12,8 @@ export default function ProfileImage({ className = '' }) {
           <img
             src={profilePhoto}
             alt="Mahmoud M. Al-Jabour"
+            loading="eager"
+            decoding="async"
             className="h-full w-full scale-[1.12] object-cover object-[50%_30%]"
           />
         </div>

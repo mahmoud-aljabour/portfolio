@@ -2,7 +2,7 @@ import { GitHubIcon, LinkedInIcon, XIcon } from './SocialIcons'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Projects', href: '#portfolio' },
   { label: 'About Me', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -10,7 +10,6 @@ const navLinks = [
 const socialLinks = [
   { Icon: GitHubIcon, href: 'https://github.com/mahmoud-aljabour', label: 'GitHub' },
   { Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/mahmoud-al-jabour/', label: 'LinkedIn' },
-  { Icon: XIcon, href: 'https://twitter.com', label: 'X (Twitter)' },
 ]
 
 export default function Footer() {

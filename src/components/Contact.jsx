@@ -1,8 +1,7 @@
 import { Mail } from 'lucide-react'
 import { useFadeIn } from '../hooks/useFadeIn'
 
-const GMAIL_URL =
-  'https://mail.google.com/mail/?view=cm&fs=1&to=mahmoud.aljabour@gmail.com'
+const GMAIL_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=mahmoud.aljabour@gmail.com'
 
 export default function Contact() {
   const { ref, isVisible } = useFadeIn()
@@ -13,10 +12,10 @@ export default function Contact() {
         ref={ref}
         className={`mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
-        <h2 className="section-title mb-6">Contact me</h2>
+        <h2 className="section-title mb-6">Get In Touch</h2>
         <p className="mx-auto mb-8 max-w-lg text-sm text-muted dark:text-slate-400">
-          Have a project in mind or want to discuss an opportunity? Send me an email
-          and I&apos;ll get back to you as soon as possible.
+          Have a project in mind or want to discuss an opportunity? Send me an email and I&apos;ll
+          get back to you as soon as possible.
         </p>
 
         <a

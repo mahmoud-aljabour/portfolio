@@ -74,6 +74,8 @@ export default function ProjectLightbox({ images, index, title, onClose, onNavig
         <img
           src={current.src}
           alt={current.alt}
+          loading="eager"
+          decoding="async"
           className="max-h-[82vh] w-full rounded-card object-contain shadow-2xl"
         />
         <div className="mt-4 text-center">
