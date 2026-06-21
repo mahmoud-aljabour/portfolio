@@ -2,8 +2,10 @@ import { GitHubIcon, LinkedInIcon, XIcon } from './SocialIcons'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Projects', href: '#portfolio' },
   { label: 'About Me', href: '#about' },
+  { label: 'Projects', href: '#portfolio' },
+  { label: 'Why Me', href: '#why-me' },
+  { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -19,9 +21,9 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <a href="#home" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
-              MA
+              M
             </div>
-            <span className="text-lg font-bold text-dark dark:text-slate-100">Mahmoud</span>
+            <span className="text-lg font-bold text-dark dark:text-slate-100">Mahmoud Al-Jabour</span>
           </a>
 
           <ul className="flex flex-wrap items-center justify-center gap-6">

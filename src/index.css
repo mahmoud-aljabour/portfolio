@@ -27,11 +27,27 @@
   }
 
   .section-label {
-    @apply text-sm font-semibold uppercase tracking-wider text-primary;
+    @apply mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary dark:bg-primary/15;
   }
 
   .section-title {
-    @apply text-3xl font-bold text-dark md:text-4xl dark:text-slate-100;
+    @apply text-3xl font-bold tracking-tight text-dark md:text-4xl dark:text-slate-100;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-muted dark:text-slate-400;
+  }
+
+  .section-header {
+    @apply mb-12 lg:mb-14;
+  }
+
+  .section-header--with-action {
+    @apply flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between;
+  }
+
+  .section-header__action {
+    @apply shrink-0;
   }
 
   .card-hover {

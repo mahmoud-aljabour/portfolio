@@ -1,4 +1,5 @@
 import { useFadeIn } from '../hooks/useFadeIn'
+import SectionHeader from './SectionHeader'
 
 const skills = [
   'PHP',
@@ -23,14 +24,21 @@ export default function Skills() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section className="bg-background py-20 transition-colors duration-300 dark:bg-slate-950">
+    <section
+      id="skills"
+      aria-labelledby="skills-heading"
+      className="bg-white py-20 transition-colors duration-300 dark:bg-slate-900"
+    >
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
-        <div className="mb-12 text-center">
-          <h2 className="section-title">Technical Skills</h2>
-        </div>
+        <SectionHeader
+          id="skills-heading"
+          label="Skills"
+          title="Tools & Technologies"
+          subtitle="The stack I use daily to build, test, and ship reliable backend systems."
+        />
 
         <div className="flex flex-wrap justify-center gap-3">
           {skills.map((skill) => (

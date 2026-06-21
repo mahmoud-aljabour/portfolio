@@ -4,8 +4,10 @@ import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Projects', href: '#portfolio' },
   { label: 'About Me', href: '#about' },
+  { label: 'Projects', href: '#portfolio' },
+  { label: 'Why Me', href: '#why-me' },
+  { label: 'Process', href: '#process' },
 ]
 
 export default function Navbar() {
@@ -18,7 +20,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
-            MA
+            M
           </div>
           <span className="text-lg font-bold text-dark dark:text-slate-100">Mahmoud Al-Jabour</span>
         </a>

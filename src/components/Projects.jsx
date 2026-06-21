@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, ChevronDown, ZoomIn } from 'lu
 import { GitHubIcon } from './SocialIcons'
 import { useFadeIn } from '../hooks/useFadeIn'
 import ProjectLightbox from './ProjectLightbox'
+import SectionHeader from './SectionHeader'
 import smartSmileDashboard from '../assets/projects/smart-smile-dashboard.png'
 import smartSmileLogin from '../assets/projects/smart-smile-login.png'
 import smartSmilePatients from '../assets/projects/smart-smile-patients.png'
@@ -233,25 +234,33 @@ export default function Projects() {
   const closeLightbox = () => setLightbox(null)
 
   return (
-    <section id="portfolio" className="bg-white py-20 transition-colors duration-300 dark:bg-slate-900">
+    <section
+      id="portfolio"
+      aria-labelledby="portfolio-heading"
+      className="bg-background py-20 transition-colors duration-300 dark:bg-slate-950"
+    >
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}
       >
-        <div className="mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h2 className="section-title">Projects</h2>
-          </div>
-          <a
-            href="https://github.com/mahmoud-aljabour"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-card bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#5a52e0] hover:shadow-lg"
-          >
-            <GitHubIcon size={16} />
-            View All
-          </a>
-        </div>
+        <SectionHeader
+          id="portfolio-heading"
+          label="Portfolio"
+          title="Featured Projects"
+          subtitle="Real-world systems built for clinics, online stores, and multi-tenant SaaS platforms."
+          align="left"
+          action={
+            <a
+              href="https://github.com/mahmoud-aljabour"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-card bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#5a52e0] hover:shadow-lg"
+            >
+              <GitHubIcon size={16} />
+              View All
+            </a>
+          }
+        />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((project) => (
