@@ -55,8 +55,8 @@ export default function About() {
             </ul>
 
             <a
-              href="/cv/Mahmoud-AlJabour-CV.md"
-              download="Mahmoud-AlJabour-CV.md"
+              href="/cv/Mahmoud-AlJabour-CV.docx"
+              download="Mahmoud-AlJabour-CV.docx"
               className="btn-primary inline-flex items-center gap-2"
             >
               <svg
