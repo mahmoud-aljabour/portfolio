@@ -55,8 +55,8 @@ export default function About() {
             </ul>
 
             <a
-              href="/cv/Mahmoud-AlJabour-CV.docx"
-              download="Mahmoud-AlJabour-CV.docx"
+              href={`${import.meta.env.BASE_URL}Mahmoud_Al-Jabour_CV.docx`}
+              download="Mahmoud_Al-Jabour_CV.docx"
               className="btn-primary inline-flex items-center gap-2"
             >
               <svg

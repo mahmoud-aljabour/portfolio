@@ -26,6 +26,11 @@ import libraryAuthors from '../assets/projects/library-authors.png'
 import libraryLogin from '../assets/projects/library-login.png'
 import multiTenantArchitecture from '../assets/projects/multi-tenant-architecture.png'
 import multiTenantArchitectureDetail from '../assets/projects/multi-tenant-architecture-detail.png'
+import shamsFlowersDashboard from '../assets/projects/shams-flowers-dashboard.png'
+import shamsFlowersBouquets from '../assets/projects/shams-flowers-bouquets.png'
+import shamsFlowersBranchApprovals from '../assets/projects/shams-flowers-branch-approvals.png'
+import shamsFlowersFlowers from '../assets/projects/shams-flowers-flowers.png'
+import shamsFlowersOccasions from '../assets/projects/shams-flowers-occasions.png'
 
 const projects = [
   {
@@ -50,6 +55,7 @@ const projects = [
       { src: smartSmileLogin, alt: 'Smart Smile Clinic login page', label: 'Login' },
     ],
   },
+  /* --- Multi-Tenant Inventory System (hidden) ---
   {
     title: 'Multi-Tenant Inventory System',
     category: 'SaaS / Backend',
@@ -76,6 +82,7 @@ const projects = [
       },
     ],
   },
+  --- */
   {
     title: 'Library Management System',
     category: 'Web Application',
@@ -121,6 +128,27 @@ const projects = [
       { src: onlineStoreCustomerLogin, alt: 'Online Store customer login', label: 'Login' },
       { src: onlineStoreAdminDashboard, alt: 'Online Store admin dashboard', label: 'Admin' },
       { src: onlineStoreAdminLogin, alt: 'Online Store admin login page', label: 'Admin Login' },
+    ],
+  },
+  {
+    title: 'Shams Flowers',
+    category: 'Flower Shop Management / E-Commerce Backend',
+    description:
+      'Full-featured flower shop management backend with Google OAuth authentication, RESTful APIs, bouquet and product management, order tracking, and image storage. Built for production hosting with a scalable and maintainable Laravel architecture.',
+    technicalDetails: [
+      'Google OAuth login with Laravel Sanctum for secure API token authentication',
+      'RESTful API design with role-based access control and user permission management',
+      'Bouquet and flower product management with multi-image upload and public URL handling',
+      'Order management system with Eloquent ORM relationships across multiple tables',
+      'Laravel Storage integration with production-ready public disk configuration',
+    ],
+    tags: ['Laravel', 'PHP', 'MySQL', 'REST API', 'Google OAuth', 'Laravel Sanctum', 'Eloquent ORM'],
+    images: [
+      { src: shamsFlowersDashboard, alt: 'Shams Flowers admin dashboard', label: 'Dashboard' },
+      { src: shamsFlowersBouquets, alt: 'Shams Flowers bouquets management', label: 'Bouquets' },
+      { src: shamsFlowersBranchApprovals, alt: 'Shams Flowers branch approvals', label: 'Branches' },
+      { src: shamsFlowersFlowers, alt: 'Shams Flowers flower types management', label: 'Flowers' },
+      { src: shamsFlowersOccasions, alt: 'Shams Flowers occasions management', label: 'Occasions' },
     ],
   },
 ]

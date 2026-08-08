@@ -2,7 +2,7 @@ import { Mail } from 'lucide-react'
 import { useFadeIn } from '../hooks/useFadeIn'
 import SectionHeader from './SectionHeader'
 
-const GMAIL_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=mahmoud.aljabour@gmail.com'
+const GMAIL_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=mahmoudaljabour024@gmail.com'
 
 export default function Contact() {
   const { ref, isVisible } = useFadeIn()
