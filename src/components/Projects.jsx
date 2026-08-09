@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, ChevronLeft, ChevronRight, ChevronDown, ZoomIn } from 'lucide-react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, ChevronDown, Globe, ZoomIn } from 'lucide-react'
 import { GitHubIcon } from './SocialIcons'
 import { useFadeIn } from '../hooks/useFadeIn'
 import ProjectLightbox from './ProjectLightbox'
@@ -143,6 +143,7 @@ const projects = [
       'Laravel Storage integration with production-ready public disk configuration',
     ],
     tags: ['Laravel', 'PHP', 'MySQL', 'REST API', 'Google OAuth', 'Laravel Sanctum', 'Eloquent ORM'],
+    liveUrl: 'https://www.shamsflowers.com/',
     images: [
       { src: shamsFlowersDashboard, alt: 'Shams Flowers admin dashboard', label: 'Dashboard' },
       { src: shamsFlowersBouquets, alt: 'Shams Flowers bouquets management', label: 'Bouquets' },
@@ -339,16 +340,32 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-[#5a52e0]"
-                >
-                  <GitHubIcon size={14} />
-                  View on GitHub
-                  <ArrowUpRight size={14} />
-                </a>
+                <div className="flex flex-wrap items-center gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-[#5a52e0]"
+                    >
+                      <Globe size={14} />
+                      Visit Website
+                      <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-[#5a52e0]"
+                    >
+                      <GitHubIcon size={14} />
+                      View on GitHub
+                      <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
